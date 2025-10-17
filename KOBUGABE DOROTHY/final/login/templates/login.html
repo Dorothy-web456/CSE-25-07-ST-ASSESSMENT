@@ -1,0 +1,17 @@
+{% extends "base.html"}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="login-wrapper">
+  <form class="login-form">
+    <input type="text" placeholder="Email or Phone Number" required>
+    <input type="password" placeholder="Password" required>
+    <button type="submit">LOGIN</button>
+    <p>Don't have an account? <a href="{% url 'register' %}">Signup</a></p>
+  </form>
+</div>
+<form method = 'post' novalidate>
+    {% csrf_token %}
+    {{ form | crispy }}
+    <button>Login</button>
+</form>
+{% endblock content %}
